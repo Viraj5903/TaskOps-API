@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 import json
 from helpers.token_validation import validate_jwt
-from controllers.task_controller import create_task
+from controllers.task_controller import create_task, get_tasks_assigned_to_user, get_task_created_by_user, update_task, delete_task
 
 # task = Blueprint("task", __name__, url_prefix="/tasks/")
 task = Blueprint("task", __name__)
@@ -52,6 +52,9 @@ def createTask():
 def deleteTask(taskUid):
     try:
         
+        # print(taskUid)
+        # print(type(taskUid))
+                
         # Validating the user.
         token = validate_jwt()
 
@@ -60,9 +63,22 @@ def deleteTask(taskUid):
         if token == 401:
            return jsonify({"error": 'Invalid authentication token, please login again'}), 403
         
-        user_information = token
-
-    except ValueError:
-        return jsonify({'error': 'Error creating task.'}), 500
+        # Checking whether the taskUid length is equal to 24 or not.
+        if len(taskUid) != 24:
+            return jsonify({"error": f"Not task found with task_id = {taskUid}. It length must be equal to 24 characters."}), 404
+        
+        # Printing the user_information which we extract from the token.
+        # print("Token = ", token)
+        
+        # user_information = token
+        
+        # Calling the delete_task function of the controller function with arguments user_information as token and task_id as taskUid.
+        deleted_result = delete_task(token, taskUid)
+        
+        # Return the number of documents deleted from the task collection of the database.
+        return jsonify({'tasksAffected': deleted_result.deleted_count}), 200
+        
+    except ValueError as error:
+        return jsonify({'error': f'Error on deleting task. Error = {error}'}), 500
     except Exception as error:
         return jsonify({'error': error}), 500
