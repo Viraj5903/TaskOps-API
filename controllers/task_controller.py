@@ -39,8 +39,21 @@ def get_task_created_by_user():
     pass
 
 # TODO: Aryan Handa
-def get_tasks_assigned_to_user():
-    pass
+def get_tasks_assigned_to_user(assignedToUid):
+    try:
+        # Retrieve tasks assigned to the user
+        tasks = conn.database[config.CONST_TASK_COLLECTION].find({"assignedToUid": assignedToUid})
+
+        user_tasks = list(tasks)
+
+        for task in user_tasks:
+            task["_id"] = str(task["_id"]) 
+
+        return user_tasks
+    
+    except Exception as err:
+        raise ValueError("Error fetching tasks assigned to user: ", err)
+
 
 # TODO: Payal Rangra
 def update_task():

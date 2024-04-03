@@ -44,6 +44,28 @@ def createTask():
 # TODO: Dil Raval. Get tasks created by the user route.
 
 # TODO: Aryan Handa. Get tasks assigned to the user route.
+# Define the route for getting tasks assigned to the user
+@task.route("/tasks/assignedto/", methods=["GET"])
+def get_tasks_assigned_to_current_user():
+    try:
+        # Validate the JWT token
+        token = validate_jwt()
+
+        if token == 400:
+            return jsonify({"error": 'Token is missing in the request.'}), 401
+        if token == 401:
+            return jsonify({"error": 'Invalid authentication token.'}), 403
+
+        # Retrieve assignedToUid from the token
+        assignedToUid = token['id']
+
+        # Fetch tasks assigned to the user
+        tasks = get_tasks_assigned_to_user(assignedToUid)
+
+        return jsonify({'tasks': tasks})
+
+    except ValueError as err:
+        return jsonify({'error': str(err)}), 500
 
 # TODO: Payal Rangra. Update task route.
 
