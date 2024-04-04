@@ -8,3 +8,25 @@ password: 123456
     },
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpcmFqQGdtYWlsLmNvbSIsImlkIjoiNjYwNzJmNzdlM2U5MDk5ZDQ3YWYzNzJkIiwiZXhwIjoxNzE0MzM5OTk2fQ.bGEVHb4qRZJwlBKMsKUWphOmumXQejxO0dzH4afAxio"
 }
+
+password: 12345
+{
+    "expiration": 2592000,
+    "logged_user": {
+        "email": "preet@gmail.com",
+        "id": "660d7ccfd6606ab9adbf99d8",
+        "name": "Manpreet Kaur"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByZWV0QGdtYWlsLmNvbSIsImlkIjoiNjYwZDdjY2ZkNjYwNmFiOWFkYmY5OWQ4IiwiZXhwIjoxNzE0NzUyMjQxfQ.e5ajK6ZUX1z903zfxKZmPU-Srh94uRwDDg47fbDNT9M"
+}
+
+password: harrypotter
+{
+    "expiration": 2592000,
+    "logged_user": {
+        "email": "aryan@gmail.com",
+        "id": "660de46edd4cefc137c0b129",
+        "name": "Aryan Handa"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyeWFuQGdtYWlsLmNvbSIsImlkIjoiNjYwZGU0NmVkZDRjZWZjMTM3YzBiMTI5IiwiZXhwIjoxNzE0Nzc4NTY4fQ.U4HR5CCEC2D07tO7lA7M8trB6hMXYMU0SdiDzgHRFlI"
+}
