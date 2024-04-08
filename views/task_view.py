@@ -35,13 +35,35 @@ def createTask():
         created_task = create_task(task_info)
         
         # Return the ID of the created task
-        return jsonify({'id': str(created_task.inserted_id)})
+        return jsonify({'id': str(created_task.inserted_id)}), 200
     
     except ValueError as err:
         return jsonify({"error": str(err)}), 400
 
 
 # TODO: Dil Raval. Get tasks created by the user route.
+@task.route("/tasks/createdby/", methods=["GET"])
+def search_created_by():
+    try:
+        
+        # Validate the JWT token
+        token = validate_jwt()
+
+        if token == 400:
+            return jsonify({"error": 'Token is missing in the request.'}), 401
+        if token == 401:
+            return jsonify({"error": 'Invalid authentication token.'}), 403
+
+        user_id = token['id']
+
+        # Fetch tasks assigned to the user
+        tasks = get_task_created_by_user(user_id=user_id)
+
+        return jsonify(tasks)
+    except ValueError as err:
+        return jsonify({"error": str(err)}), 400
+    except Exception as error:
+        return jsonify({'error' : error}), 500
 
 # TODO: Aryan Handa. Get tasks assigned to the user route.
 # Define the route for getting tasks assigned to the user
@@ -65,11 +87,11 @@ def get_tasks_assigned_to_current_user():
         return jsonify({'tasks': tasks})
 
     except ValueError as err:
-        return jsonify({'error': str(err)}), 500
+        return jsonify({"error": str(err)}), 400
 
 # TODO: Payal Rangra. Update task route.
 @task.route("/tasks/<taskUid>", methods=["PATCH"])
-def updatetask(taskUid):
+def updateTask(taskUid):
     try:    
         # Validating the user.
         token = validate_jwt() 
@@ -79,8 +101,7 @@ def updatetask(taskUid):
         if token == 401:
            return jsonify({"error": 'Invalid authentication token, please login again'}), 403
         
-        
-        
+    
         data = json.loads(request.data)
         if  "done" not in data:
             return jsonify({"error": 'Status done not found in the request'}), 400
@@ -93,7 +114,7 @@ def updatetask(taskUid):
         return  jsonify({"taskUid":taskUid}) , 200
 
     except ValueError as error:
-        return jsonify({'error': f'Error on updating  the task. {error}'}), 500
+        return jsonify({'error': str(error)}), 400
     except Exception as error:
         return jsonify({'error': error}), 500
     
@@ -113,22 +134,17 @@ def deleteTask(taskUid):
         if token == 401:
            return jsonify({"error": 'Invalid authentication token, please login again'}), 403
         
-        # Checking whether the taskUid length is equal to 24 or not.
-        if len(taskUid) != 24:
-            return jsonify({"error": f"Not task found with task_id = {taskUid}. It length must be equal to 24 characters."}), 404
-        
         # Printing the user_information which we extract from the token.
         # print("Token = ", token)
         
-        # user_information = token
-        
-        # Calling the delete_task function of the controller function with arguments user_information as token and task_id as taskUid.
-        deleted_result = delete_task(token, taskUid)
+        # Calling the delete_task function of the controller function with arguments token as user_information token and taskUid as task_id.
+        deleted_result = delete_task(user_information = token, task_id = taskUid)
         
         # Return the number of documents deleted from the task collection of the database.
         return jsonify({'tasksAffected': deleted_result.deleted_count}), 200
         
     except ValueError as error:
-        return jsonify({'error': f'Error on deleting task. Error = {error}'}), 500
+        return jsonify({'error': str(error)}), 400
+        # return jsonify({'error': f'Error on deleting task. Error = {error}'}), 400
     except Exception as error:
         return jsonify({'error': error}), 500

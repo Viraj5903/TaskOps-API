@@ -30,3 +30,14 @@ password: harrypotter
     },
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyeWFuQGdtYWlsLmNvbSIsImlkIjoiNjYwZGU0NmVkZDRjZWZjMTM3YzBiMTI5IiwiZXhwIjoxNzE0Nzc4NTY4fQ.U4HR5CCEC2D07tO7lA7M8trB6hMXYMU0SdiDzgHRFlI"
 }
+
+password: payal
+{
+    "expiration": 2592000,
+    "logged_user": {
+        "email": "payal@gmail.com",
+        "id": "66134716b49b62088e32f387",
+        "name": "Payal"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBheWFsQGdtYWlsLmNvbSIsImlkIjoiNjYxMzQ3MTZiNDliNjIwODhlMzJmMzg3IiwiZXhwIjoxNzE1MTMxNDM5fQ.wr6Kc_4jq-Hk3szkoRKjkD5aXbnC7G3t3Yq79rquA4A"
+}
