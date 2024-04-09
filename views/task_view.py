@@ -108,9 +108,6 @@ def updateTask(taskUid):
        
         result = update_task(token, taskUid, data["done"])
         
-        if result=="No such task exists." :
-            return jsonify({"Error":"Task does not exist"}), 404
-        
         return  jsonify({"taskUid":taskUid}) , 200
 
     except ValueError as error:

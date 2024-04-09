@@ -111,7 +111,6 @@ def delete_task(user_information, task_id):
         # Connect to the tasks collection of the database.
         task_collection = conn.database.get_collection(config.CONST_TASK_COLLECTION)
         
-        
         # Find the task with _id = task_id.
         current_task = task_collection.find_one({'_id': ObjectId(task_id)})
         
@@ -133,5 +132,5 @@ def delete_task(user_information, task_id):
         return deleted_result
         
     except Exception as error:
-        raise ValueError('Error on updating task: ' f'{error}')
+        raise ValueError('Error on deleting task: ' f'{error}')
     
