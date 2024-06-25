@@ -1,0 +1,2 @@
+# Ignore Python bytecode cache directories recursively
+**/__pycache__/

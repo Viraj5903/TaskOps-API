@@ -1,10 +1,10 @@
 # TaskOps API
 
 ## Overview
-TaskOps (Task Operations) API is a RESTful backend API built with Flask and MongoDB, designed to streamline task management operations. It provides endpoints for user registration and authentication, as well as creating, retrieving, updating, and deleting tasks. The API ensures secure authentication and authorization using JWT tokens, serving various web and mobile applications requiring efficient and easy task management capabilities.
+TaskOps (Task Operations) API is a RESTful backend API built with Flask and MongoDB, using Python programming language. It is designed to streamline task management operations for various web and mobile applications. The API provides endpoints for user registration and authentication, as well as creating, retrieving, updating, and deleting tasks. The API ensures secure authentication and authorization using JWT tokens, serving as an efficient and easy task management solution.
 
 ## Description
-TaskOps API offers a comprehensive solution for efficient and easy task management, focusing on user account management and secure operations. Leveraging Flask for its lightweight and flexible framework and MongoDB for its scalable NoSQL database capabilities, the API ensures seamless user registration and authentication, as well as CRUD (Create, Read, Update, Delete) operations for tasks. Authentication and authorization are handled securely using JWT tokens, ensuring that only authorized users can access and manipulate task data.
+TaskOps API offers a comprehensive solution for efficient and easy task management, focusing on user account management and secure operations. Utilizing Flask for its lightweight and flexible framework and MongoDB for its scalable NoSQL database capabilities, the API, developed with Python, ensures seamless user registration and authentication, as well as CRUD (Create, Read, Update, Delete) operations for tasks. Authentication and authorization are handled securely using JWT tokens, ensuring that only authorized users can access and manipulate task data.
 
 The API adheres to RESTful principles, employing HTTP methods for predictable and intuitive endpoint design. It supports functionalities such as:
 - User registration and authentication: Enables users to create accounts and securely authenticate using their credentials to access the task management features.

@@ -4,17 +4,48 @@ class Task:
     """Class representing a Task model."""
     # Constructor
     def __init__(self):
+        """
+        Constructor for the Task class.
+
+        Initializes the instance variables createdByUid, createdByName, assignedToUid, assignedToName, description and done to empty strings and False respectively.
+        """
+        # UID of the user who created the task
         self.createdByUid = ""
+        # Name of the user who created the task
         self.createdByName = ""
+        # UID of the user to whom the task is assigned
         self.assignedToUid = ""
+        # Name of the user to whom the task is assigned
         self.assignedToName = ""
+        # Description of the task
         self.description = ""
+        # Flag indicating if the task is done or not
         self.done = False
     
     # Method to display detail about the task.
     def displayDetail(self):
-        """Method to display detail about the task."""
-        print(f"\nCreated by ID = {self.createdByUid}\nCreated by Name = {self.createdByName}\nAssigned To ID = {self.assignedToUid}\nAssigned To Name = {self.assignedToName}\nDescription = {self.description}\nDone = {self.done}\n")
+        """
+        Method to display detail about the task.
+
+        This method prints the createdByUid, createdByName, assignedToUid, assignedToName, description and done of the task.
+        """
+        # Print the createdByUid of the task
+        print(f"\nCreated by ID = {self.createdByUid}")
+        
+        # Print the createdByName of the task
+        print(f"Created by Name = {self.createdByName}")
+        
+        # Print the assignedToUid of the task
+        print(f"Assigned To ID = {self.assignedToUid}")
+        
+        # Print the assignedToName of the task
+        print(f"Assigned To Name = {self.assignedToName}")
+        
+        # Print the description of the task
+        print(f"Description = {self.description}")
+        
+        # Print the done status of the task
+        print(f"Done = {self.done}\n")
 
 
 # Object example 
