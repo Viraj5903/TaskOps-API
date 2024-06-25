@@ -1,4 +1,4 @@
-CONST_MONGO_URL = "mongodb+srv://group1:group1234@cluster0.osi8eyv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+CONST_MONGO_URL = "<your_mongodb_connection_string>"
 CONST_DATABASE = "TaskTrackerDB"
 CONST_USER_COLLECTION = "users"
 CONST_TASK_COLLECTION = "tasks"
